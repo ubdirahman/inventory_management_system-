@@ -1,0 +1,79 @@
+PROJECT DEFENSE DOCUMENT
+
+Section| Details
+Student Name| Ubdirahman
+Project Title| Inventory Management System
+Defense Date| June 28, 2026 (6:30 PM – 7:15 PM)
+GitHub Repository| https://github.com/ubdirahman/inventory_management_system-
+
+1. Problem Statement
+
+Item| Description
+Problem| Businesses often struggle to track inventory manually, leading to stock shortages, overstocking, data inaccuracies, and inefficient operations.
+Solution| The Inventory Management System provides a centralized platform to manage products, categories, suppliers, stock movements, and inventory reports in real time.
+
+2. Entities / Data Model
+
+Entity| Fields
+User| name, email, password, role, isActive, createdAt
+Category| name, description, createdBy
+Product| name, description, category, sku, price, quantity, image, createdBy
+Supplier| name, email, phone, address, createdBy
+Stock In| product, supplier, quantity, date, createdBy
+Stock Out| product, quantity, date, createdBy
+Inventory Transaction| product, transactionType, quantity, date, user
+
+3. Workflow
+
+Step| Process
+1| User logs into the system
+2| Admin creates categories
+3| Admin adds suppliers
+4| Admin adds products
+5| Stock is added through Stock In
+6| Stock is removed through Stock Out
+7| Inventory updates automatically
+8| Users view inventory reports and statistics
+
+4. Tech Stack
+
+Layer| Technologies
+Frontend| React.js, Vite, Tailwind CSS, Axios
+Backend| Node.js, Express.js
+Database| MongoDB, Mongoose
+Authentication| JWT
+Authorization| CASL
+Documentation| Swagger
+Media Storage| Cloudinary
+Version Control| Git & GitHub
+
+5. Features Implemented
+
+Feature| Status
+Authentication & Authorization| ✅
+User Management| ✅
+Category CRUD| ✅
+Product CRUD| ✅
+Supplier CRUD| ✅
+Stock In Management| ✅
+Stock Out Management| ✅
+Inventory Tracking| ✅
+Search & Filtering| ✅
+Pagination| ✅
+Dashboard Statistics| ✅
+Image Upload| ✅
+API Documentation (Swagger)| ✅
+Role-Based Access Control| ✅
+
+6. Challenges & Learnings
+
+Challenges| Learnings
+Designing the inventory database structure| MongoDB Data Modeling
+Managing stock updates correctly| MERN Stack Development
+Implementing role-based permissions| JWT Authentication & CASL Authorization
+Building reusable API endpoints| Professional REST API Design
+Integrating multiple technologies| Full-Stack Application Development
+
+7. Conclusion
+
+The Inventory Management System helps businesses efficiently manage products, suppliers, stock transactions, and inventory levels. The system reduces manual errors, improves stock accuracy, and provides real-time inventory monitoring through a modern MERN-stack architecture.

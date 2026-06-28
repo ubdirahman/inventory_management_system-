@@ -3,8 +3,7 @@ const mongoose = require('mongoose'); // Library-ga MongoDB la hadla
 const connectDB = async () => {
     try {
         // Isku day in aad ku xirto database-ka
-        // MongoDB automatically creates the database if it doesn't exist
-        const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/inventory_system');
+        const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/inventory_system');
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
         // Haddii uu qalad dhaco, halkan ayuu ku tusayaa

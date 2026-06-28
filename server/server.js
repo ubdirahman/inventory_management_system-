@@ -6,14 +6,34 @@ const connectDB = require('./config/db'); // Soo kicinta xiriirka Database-ka
 // Akhri database-ka iyo configuration-ka kale
 dotenv.config();
 
-// Ku xir database-ka MongoDB
-connectDB();
-
 const app = express(); // Samaynta Application-ka Express
+
+// Ku xir database-ka MongoDB (waa in la sugto)
+const startServer = async () => {
+    try {
+        await connectDB();
+
+        // Port-ka uu server-ku ku shaqaynayo
+        const PORT = process.env.PORT || 5000;
+
+        // Bilaabidda server-ka
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error('Failed to connect to MongoDB:', error.message);
+        process.exit(1);
+    }
+};
+
 
 // Middleware: Waxyaabaha codsiyada soo dhex mara
 app.use(cors()); // Oggolaanshaha xiriirka dibadda
 app.use(express.json()); // U oggolaanshaha in server-ku akhriyo JSON data
+
+// Bilaabidda server-ka (ka dib DB connection)
+startServer();
+
 
 // Waddada ugu horraysa (Home Route)
 app.get('/', (req, res) => {
@@ -30,10 +50,4 @@ app.use('/api/debts', require('./routes/debtRoutes')); // Qaybta deynta
 app.use('/api/dashboard', require('./routes/dashboardRoutes')); // Qaybta warbixinta (Dashboard)
 app.use('/api/payments', require('./routes/paymentRoutes')); // Qaybta lacag bixinta (WaafiPay)
 
-// Port-ka uu server-ku ku shaqaynayo
-const PORT = process.env.PORT || 5000;
 
-// Bilaabidda server-ka
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
